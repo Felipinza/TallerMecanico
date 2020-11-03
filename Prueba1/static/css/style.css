@@ -1,0 +1,245 @@
+/*REGLAS PARA BODY*/
+
+#mybod {
+    background-image: black;
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* BACKGROUND IMAGE: 
+    background-attachment: fixed;
+    background-image: url('/images/fondo3.jpg');
+    background-size: 1980px;
+    background-blend-mode: darken;
+*/
+
+/*LINKS DEL NAVBAR*/
+#item_menu {
+    font-family: monospace;
+    color: white !important;
+    font-size: larger;
+}
+
+/*TEXTO MODERNO MENU Y GENERAL*/
+#modern_text {
+    font-family: monospace !important;
+    color: white !important;
+    font-size: larger;
+}
+
+#modern_text_title {
+    font-family: monospace !important;
+    color: white !important;
+    font-size: xx-large;
+}
+
+#formularioContacto
+{
+    color: white;
+}
+
+#titulo-certi{
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+    color: grey;
+    text-decoration: underline;
+    text-decoration-color: lightgrey;
+}
+
+#texto-certi{
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+    color: grey;
+    text-decoration-color: aliceblue;
+}
+
+#caption_nombre_mec{
+  font-family: monospace !important;
+  color: white !important;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0.8em ;
+}
+
+#modern_text_especialidad{
+  font-family: monospace !important;
+  color: white !important;
+  font-size: 40px;
+}
+
+#modern_text_cita{
+  color: white !important;
+  font-size: large;
+}
+
+.texto_mecanicos{
+  font-family: monospace;
+  color: white !important;
+  font-size: xx-large;
+  visibility: hidden;
+}
+
+.texto_banner{
+  font-family: monospace;
+  color: white !important;
+  font-size: 55px !important;
+  visibility: hidden;
+}
+
+/*THUMBNAIL CON HOVER PARA MECANICOS*/
+.thumbnail:hover .img-fluid{
+    opacity: 0.3;
+}
+
+.thumbnail:hover .texto_mecanicos{
+  visibility: visible;
+  opacity: default;
+}
+
+/*THUMBNAIL CON HOVER PARA BANNER*/
+.thumbnail_banner:hover .texto_banner{
+  visibility: visible;
+  opacity: default;
+}
+
+.thumbnail_banner:hover .img-fluid{
+  opacity: 0.3;
+}
+
+/*PONER TEXTO SOBRE IMAGENES EN UN CONTENEDOR ESPECIAL*/
+.contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.texto_encima{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.texto_encima_centrado{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*COLOR ON HOVER!*/
+.colorizar:hover {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  }
+
+.icono_mecanico{
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+}
+
+.icono_mecanico:hover{
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  filter: grayscale(0%);
+  filter: gray;
+  -webkit-filter: grayscale(0);
+}
+
+/*FORMATO CARUSEL*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 50px;
+  background-size: 100%, 100%;
+}
+
+.carousel-control-next-icon:after
+{
+  font-size: 55px;
+}
+
+.carousel-control-prev-icon:after {
+  font-size: 55px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SNIPPETS*/
+/*el login que hizo alguien en alguna parte para algun trabajo*/
+.login {
+    margin:0 auto;
+    max-width:500px;
+  }
+  .login-header {
+    color:#fff;
+    text-align:center;
+    font-size:300%;
+  }
+  .login-header h1 {
+     text-shadow: 0px 5px 15px #000;
+  }
+  .login-form h3 {
+    text-align:left;
+    margin-left:40px;
+    color:#fff;
+  }
+  .login-form {
+    box-sizing:border-box;
+    padding-top:15px;
+      padding-bottom:10%;
+    margin:5% auto;
+    text-align:center;
+  }
+  .login input[type="text"],
+  .login input[type="password"] {
+    max-width:400px;
+      width: 80%;
+    line-height:3em;
+    font-family: monospace;
+    margin:1em 2em;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+  }
+  .login-form input[type="button"] {
+    height:30px;
+    width:100px;
+    border:1px solid #f2f2f2;
+    border-radius:5px;
+    color: white;
+    background-color: transparent;
+    text-transform:uppercase;
+    font-family: monospace;
+    cursor:pointer;
+  }
