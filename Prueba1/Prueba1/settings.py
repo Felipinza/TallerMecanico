@@ -134,3 +134,8 @@ STATICFILES_DIRS = [
     STATIC_CSS,
     STATIC_IMAGES,
     ]
+
+LOGIN_REDIRECT_URL = '/index'
+LOGOUT_REDIRECT_URL = '/index'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))

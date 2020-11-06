@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -16,18 +17,6 @@ class Imagen(models.Model):
     fechaRegistro = models.DateTimeField(verbose_name='Fecha Hora Registro')
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
-
-class Usuario(models.Model):
-    email=models.EmailField(max_length=70, primary_key=True, verbose_name='Email')
-    nombre=models.CharField(max_length=20, verbose_name='Nombre')
-    #apellidos=models.CharField(max_length=70, verbose_name='Apellidos')
-    #nickname=models.CharField(max_length=20, verbose_name='Nickname')
-    #password=models.CharField(max_length=20, null=False)
-
-
-    def __str__(self):
-        return self.email
-
 class Vehiculo(models.Model):
     patente=models.CharField(max_length=6, verbose_name='Patente')
     marca=models.CharField(max_length=40, verbose_name='Marca')
@@ -38,6 +27,7 @@ class Vehiculo(models.Model):
     kilometraje=models.IntegerField(verbose_name='Kilometraje')
     transmision=models.CharField(max_length=20, verbose_name='Transmision')
     color=models.CharField(max_length=20, verbose_name='Color')
+    cliente=models.CharField(max_length=80, verbose_name='Nombre Cliente')
 
     def __str__(self):
         return self.patente
