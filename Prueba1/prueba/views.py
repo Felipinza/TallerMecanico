@@ -70,9 +70,12 @@ def Registro(request):
 
 
 # RENDER REGISTRAR VEHICULO
-def RegistroAuto(request):
+def Vehiculo(request):
     es_mecanico = request.user.groups.filter(name='mecanico').exists()
-    return render(request, 'registroauto.html', {'es_mecanico':es_mecanico})
+    nombre_pagina = "servicios"
+    vehiculos = models.Vehiculo.objects.all()
+    mis_vehiculos = models.Vehiculo.objects.filter(cliente=str(request.user.first_name) + " " + str(request.user.last_name))
+    return render(request, 'registroauto.html', {'nombre_pagina':nombre_pagina, 'vehiculos':vehiculos, 'mis_vehiculos':mis_vehiculos, 'es_mecanico':es_mecanico})
 
 
 # RENDER PAGINA SUBIR IMAGEN
@@ -122,7 +125,14 @@ def RegistrarVehiculo(request):
         auxVehiculo.cliente = cliente
         auxVehiculo.save()
 
-    return HttpResponseRedirect("/index/")
+    return HttpResponseRedirect("/registroauto/")
+
+def BorrarVehiculo(request, patente):
+    vehiculo = models.Vehiculo.objects.get(patente=patente)
+    vehiculo.delete()
+
+    return HttpResponseRedirect('/registroauto/')
+
 
 # PERMANENCIA MANTENEDOR IMAGENES
 def GuardarImagen(request):
@@ -148,7 +158,7 @@ def BorrarImagen(request, idImagen):
     imagen = models.Imagen.objects.get(idImagen=idImagen)
     imagen.delete()
 
-    return HttpResponseRedirect('/galeria/')
+    return HttpResponseRedirect('/borrarimagen/')
 
 
 def RegistrarUsuario(request):

@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: pablito@gmail.com
+Date: Tue, 17 Nov 2020 13:39:54 -0000
+Message-ID: <160562039454.14400.5146051757082775273@LAPTOP-RBOQN8M3>
+
+Someone asked for password reset for email pablito@gmail.com. Follow the link below:
+
+http://127.0.0.1:8000/accounts/reset/Mw/adh9mi-f4cb9037cfe27638a4f0c88b452b1af1/
+-------------------------------------------------------------------------------

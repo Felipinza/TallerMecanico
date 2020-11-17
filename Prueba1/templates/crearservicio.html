@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="row">
+    <br><br>
+    <br><br>
+</div>
+
+<!--CREAR SERVICIO-->
+{% if es_mecanico %}
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="{% static '/logo_grande.png' %}" class="brand_logo" alt="Logo">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container" style="margin-top: 1px;">
+                <form class="form" method="POST" action="/GuardarImagen/" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <p id="modern_text_title" style="font-style: oblique;">CREAR SERVICIO</p>
+                    <hr color="#ffd66b">
+                    <!--DATOS MECANICO-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                        </div>
+                        <input type="text" placeholder="Nombre" name="mecanico" id="mecanico" readonly required
+                        value="{{ user.first_name }} {{ user.last_name }}" />                    </div>
+                    <!--NOMBRE IMAGEN-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-camera"></i></span>
+                        </div>
+                        <input type="text" placeholder="Nombre Imagen" name="nombre" id="nombre" required/>
+                    </div>
+                    <!--DESCRIPCION-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+                        </div>
+                        <input type="text" placeholder="Descripcion" name="texto" id="texto" required/>
+                    </div>
+                    <!--ARCHIVO-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-archive"></i></span>
+                            <input class="form-control-file" id="archivo" type="file" name="archivo" id="archivo" style="color: white;" required>
+                        </div>
+                    </div>
+                    <!--CATEGORIA-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-caret-down"></i></span>
+                            <select class="form-control" id="categoria" name="categoria">
+                                {% for categoria in categorias %}
+                                <option value="{{ categoria.idCategoria }}">{{ categoria.nombreCategoria }}</option>
+                                {% endfor %}
+                            </select>   
+                        </div>
+                    </div>
+                    <!--SUBMIT BUTTON-->
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="submit" name="button" class="btn login_btn" style="margin-top: 3em;">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ROW 1-->
+{% endif %}
+
+
+{% endblock %}

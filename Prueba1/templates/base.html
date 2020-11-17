@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>TALLER YUYITOS: INICIO</title>
+    <title>TALLER YUYITOS</title>
 </head>
 
 <body id="mybod">
-
     <!--CONTAINER DE LA PÁGINA-->
     <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
         {% if es_mecanico %}
@@ -27,17 +26,17 @@
                     <!--"INICIO"-->
                     {% if nombre_pagina == 'inicio' %}
                     <li class="nav-item active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link" href="/index/">INICIO</a>
                     </li>
                     <!--"INVENTARIO"-->
                     {% if nombre_pagina == 'inventario' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
@@ -49,7 +48,7 @@
                     <!--"SERVICIOS"-->
                     {% if nombre_pagina == 'servicios' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
                     {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
@@ -58,6 +57,7 @@
                             <a id="item_menu" class="dropdown-item" href="/servicios/">VER SERVICIOS</a>
                             <a id="item_menu" class="dropdown-item" href="/servicios/">AGREGAR SERVICIO</a>
                             <a id="item_menu" class="dropdown-item" href="/servicios/">ELIMINAR SERVICIO</a>
+                            <a id="item_menu" class="dropdown-item" href="/registroauto/">REGISTRO VEHÍCULOS</a>
                         </div>
                     </li>
                 </ul>
@@ -80,7 +80,7 @@
                     <!--"GALERÍA"-->
                     {% if nombre_pagina == 'galeria' %}
                     <li class="nav-item dropdown mr-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
                     {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
@@ -124,17 +124,17 @@
                     <!--"INICIO"-->
                     {% if nombre_pagina == 'inicio' %}
                     <li class="nav-item active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link" href="/index/">INICIO</a>
                     </li>
                     <!--"INVENTARIO"-->
                     {% if nombre_pagina == 'inventario' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
@@ -147,9 +147,9 @@
                     <!--"SERVICIOS"-->
                     {% if nombre_pagina == 'servicios' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SERVICIOS</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
@@ -162,9 +162,9 @@
                     <!--"MECANICOS"-->
                     {% if nombre_pagina == 'mecanicos' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MECANICOS</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
@@ -192,23 +192,23 @@
                 <ul class="navbar-nav ml-auto">
                     {% if nombre_pagina == 'taller' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link" href="/taller/">TALLER</a>
                     </li>
                     {% if nombre_pagina == 'galeria' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link" href="/galeria/">GALERÍA</a>
                     </li>
                     {% if nombre_pagina == 'registrarse' %}
                     <li class="nav-item dropdown ml-4 active">
-                    {% else %}
+                        {% else %}
                     <li class="nav-item dropdown ml-4">
-                    {% endif %}
+                        {% endif %}
                         <a id="item_menu" class="nav-link" href="/registro/">REGISTRARSE</a>
                     </li>
                     <li class="nav-item dropdown mr-4">
@@ -341,11 +341,10 @@
         </div>
     </nav>
     </div>
-
-
     <!--FIN CONTAINER PAGINA-->
     </div>
 
+    <!--SCRIPTS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -373,7 +372,6 @@
                     }
                 )
         });
-
     </script>
 </body>
 

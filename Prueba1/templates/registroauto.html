@@ -2,55 +2,116 @@
 
 {% block content %}
 
-
-
 <div class="row">
     <br>
     <br>
 </div>
 
 <!-- MANTENEDOR AUTO-->
-<div class="login">
-    <form class="form" method="POST" action="/RegistrarVehiculo/">
-        {% csrf_token %}
+<div class="container">
+    <div class="login">
+        <form class="form" method="POST" action="/RegistrarVehiculo/">
+            {% csrf_token %}
 
-        <h3 id="modern_text">Datos del usuario:</h3>
-        <input type="text" placeholder="Cliente" name="cliente" id="cliente" readonly
-            value="{{ user.first_name }} {{ user.last_name }}" />
+            <h3 id="modern_text">Datos del usuario:</h3>
+            <input type="text" placeholder="Cliente" name="cliente" id="cliente" readonly
+                value="{{ user.first_name }} {{ user.last_name }}" />
 
-        <div class="row">
-            <div class="col-md-6">
-                <h3 id="modern_text">Datos del Vehículo</h3>
-                <input type="text" placeholder="Patente" name="patente" id="patente" />
-                <input type="text" placeholder="Marca" name="marca" id="marca" />
-                <input type="text" placeholder="Modelo" name="modelo" id="modelo" />
-                <input type="text" placeholder="Año" name="ano" id="ano" />
-                <input type="text" placeholder="Litros" name="litros" id="litros" />
-            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 id="modern_text">Datos del Vehículo</h3>
+                    <input type="text" placeholder="Patente" name="patente" id="patente" />
+                    <input type="text" placeholder="Marca" name="marca" id="marca" />
+                    <input type="text" placeholder="Modelo" name="modelo" id="modelo" />
+                    <input type="text" placeholder="Año" name="ano" id="ano" />
+                    <input type="text" placeholder="Litros" name="litros" id="litros" />
+                </div>
 
-            <div class="col-md-6">
+                <div class="col-md-6">
+                    <br>
+                    <input type="text" placeholder="Configuración" name="configuracion" id="configuracion" />
+                    <input type="text" placeholder="Kilometraje" name="kilometraje" id="kilometraje" />
+                    <input type="text" placeholder="Transmisión" name="transmision" id="transmision" />
+                    <input type="text" placeholder="Color" name="color" id="color" />
+                </div>
                 <br>
-                <input type="text" placeholder="Configuración" name="configuracion" id="configuracion" />
-                <input type="text" placeholder="Kilometraje" name="kilometraje" id="kilometraje" />
-                <input type="text" placeholder="Transmisión" name="transmision" id="transmision" />
-                <input type="text" placeholder="Color:" name="color" id="color" />
-                <input type="submit" value="REGISTRAR" class="login-button" style="margin-top: 1em; margin-left: 2em; width: 10em; height: 2em; background-color: #f7d917;" />
-
+                <input type="submit" value="REGISTRAR" name="button" class="btn login_btn" style="width: 30%;"/>
             </div>
-        </div> 
+    </div>
+
+    
 </div>
+
+<br><br><br>
+
+<div class="container">
+    <div class="card text-center">
+        <div class="card-body">
+            <h1>LISTA DE VEHICULOS</h1>
+            <h1>{{ test }}</h1>
+            <BR>
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>PATENTE</th>
+                        <th>MARCA</th>
+                        <th>MODELO</th>
+                        <th>AÑO</th>
+                        <th>COLOR</th>
+                        <th>KILOMETRAJE</th>
+                        <th>CONFIGURACION</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if es_mecanico %}
+                        {% for vehiculo in vehiculos %}
+                        <tr>
+                            <td>{{ vehiculo.patente }}</td>
+                            <td>{{ vehiculo.marca }}</td>
+                            <td>{{ vehiculo.modelo }}</td>
+                            <td>{{ vehiculo.ano }}</td>
+                            <td>{{ vehiculo.color }}</td>
+                            <td>{{ vehiculo.kilometraje }}</td>
+                            <td>{{ vehiculo.configuracion }}</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-danger"
+                                href="/BorrarVehiculo/{{ vehiculo.patente }}">X</a>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        {% for vehiculo in mis_vehiculos %}
+                        <tr>
+                            <td>{{ vehiculo.patente }}</td>
+                            <td>{{ vehiculo.marca }}</td>
+                            <td>{{ vehiculo.modelo }}</td>
+                            <td>{{ vehiculo.ano }}</td>
+                            <td>{{ vehiculo.color }}</td>
+                            <td>{{ vehiculo.kilometraje }}</td>
+                            <td>{{ vehiculo.configuracion }}</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-danger"
+                                href="/BorrarVehiculo/{{ vehiculo.patente }}">X</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
 <!-- MANTENEDOR AUTO-->
 
 <div class="row">
     <br>
     <br>
-    <br>
-    <br>    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>    
     <br>
     <br>
     <br>
