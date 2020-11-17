@@ -1,21 +1,24 @@
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
-
 class Categoria(models.Model):
     idCategoria=models.AutoField(primary_key=True, verbose_name='ID Categoria')
     nombreCategoria=models.CharField(max_length=100, verbose_name='Nombre Categoria')
 
     def __str__(self):
-        return self.nombreCategoria
+        return str(self.idCategoria)
 
 class Imagen(models.Model):
     idImagen = models.AutoField(primary_key=True, verbose_name='ID Imagen')
     texto = models.CharField(max_length=120, verbose_name='Texto Descriptivo')
     nombre = models.CharField(max_length=50, verbose_name='Nombre Imagen')
-    fechaRegistro = models.DateTimeField(verbose_name='Fecha Hora Registro')
+    fechaRegistro = models.DateTimeField(auto_now_add=True, verbose_name='Fecha Hora Registro')
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    mecanico=models.CharField(max_length=80, default="mecanico", verbose_name='Nombre Mecanico')
+    archivo = models.ImageField(upload_to="img_subidas", null=True)
+
+    def __str__(self):
+        return str(self.idImagen)
 
 class Vehiculo(models.Model):
     patente=models.CharField(max_length=6, verbose_name='Patente')
@@ -37,6 +40,7 @@ class Servicio(models.Model):
     nombre=models.CharField(max_length=40, verbose_name='Marca')
     descripcion=models.CharField(max_length=100, verbose_name='Descripcion')
     disponible=models.BooleanField(verbose_name='Disponibilidad')
+    precio=models.IntegerField(verbose_name='Precio')
 
     def __str__(self):
         return self.idServicio

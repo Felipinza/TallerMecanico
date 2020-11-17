@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+        <!--ROW 1: MODIFICACIONES-->
+        <div class="container-fluid" style="padding-left: 3em; padding-right: 3em;">
+            <div class="row">
+                <div class="col-md-4" style="margin-top: 1cm; margin-bottom: 15px;">
+                    <img class="img-fluid rounded" style="border-style: ridge;" src="{% static imagen.archivo %}"
+                        alt="{{ imagen.nombre }}">
+                    <div class="card text-left">
+                        <img class="card-img-top" src="holder.js/100px180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ imagen.nombre }}</h4>
+                            <p class="card-text">{{ imagen.fechaRegistro }}</p>
+                            <p class="card-text">{{ imagen.texto }}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+{% endblock %}

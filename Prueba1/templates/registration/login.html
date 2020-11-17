@@ -1,280 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="row">
+    <br><br>
+    <br><br>
+    <br><br>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>TALLER YUYITOS: LOGIN</title>
-</head>
-
-<body id="mybod" style="background-color: black;">
-
-    <!--CONTAINER DE LA PÁGINA-->
-    <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
-
-        <!--NAVBAR-->
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #181818;">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ml-4">
-                        <a id="item_menu" class="nav-link" href="index.html">INICIO</a>
-                    </li>
-                    <!--"INVENTARIO"-->
-                    <li class="nav-item dropdown ml-4">
-                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">PERSONALIZACIÓN</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">PERFORMANCE</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">MANTENIMIENTO</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">ACCESORIOS</a>
-                        </div>
-                    </li>
-                    <!--"MODIFICACIONES"-->
-                    <li class="nav-item dropdown ml-4">
-                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SERVICIOS</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">INSTALACIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">CONVERSIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">RESTAURACIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">MANTENIMIENTO</a>
-                        </div>
-                    </li>
-                    <!--"MECANICOS"-->
-                    <li class="nav-item dropdown ml-4">
-                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MECANICOS</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="mecanico1.html">Pablo Centella</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico2.html">Cristiano Ronaldo</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico3.html">Alain D'apremont</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico4.html">Felipe Ipinza</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico5.html">Elon Musk</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!--LOGO-->
-            <div class="mx-auto order-0">
-                <a class="navbar-brand mx-auto" href="index.html">
-                    <img src="{% static 'logo.jpg' %}" alt="LOGO">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <!--OTRA NAVEGACIÓN-->
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="taller.html">TALLER</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="galeria.html">GALERÍA</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="registro.html">REGISTRARSE</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CUENTA</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                                <a id="item_menu" class="dropdown-item" href="/accounts/login">LOG IN</a>
-                                <a id="item_menu" class="dropdown-item" href="/accounts/logout">LOG OUT</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!--LOGIN-->
-
-        
-        <!--LOGIN PENCA-->
-        <div class="row" style="margin-top: 1cm;">
-            <div class="col-sm-2">
-
-            </div>
-
-            <div class="col-sm-8">
-                <div class="card text-white bg-transparent" style="border-width: 0;">
-                    <div class="card-body">
-                        {% block content %}
-    
-                        {% if form.errors %}
-                        <p>Your username and password didn't match. Please try again.</p>
-                        {% endif %}
-            
-                        {% if next %}
-                            {% if user.is_authenticated %}
-                                <p>Your account doesn't have access to this page. To proceed,
-                                    please login with an account that has access.</p>
-                            {% else %}
-                                <p>Please login to see this page.</p>
-                            {% endif %}
-                        {% endif %}
-            
-                        <form method="post" action="{% url 'login' %}">
-                            {% csrf_token %}
-                            <div>
-                                <td>{{ form.username.label_tag }}</td>
-                                <td>{{ form.username }}</td>
-                            </div>
-                            <div>
-                                <td>{{ form.password.label_tag }}</td>
-                                <td>{{ form.password }}</td>
-                            </div>
-                            <div>
-                                <input type="submit" value="login" />
-                                <input type="hidden" name="next" value="{{ next }}" />
-                            </div>
-                        </form>
-            
-                        {# Assumes you setup the password_reset view in your URLconf #}
-                        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-            
-                        {% endblock %}
-                        
-                    </div>
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card_login">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="{% static '/logo_grande.png' %}" class="brand_logo" alt="Logo">
                 </div>
             </div>
 
-        <!--FOOTER-->
-        <nav class="navbar navbar-expand navbar-dark" style="background-color: #181818">
-            <div class="nav navbar-nav">
-                <section class="section pb-5">
-
-                    <!--Seccion Contacto-->
-                    <h2 class="section-heading h1 pt-4" id="formularioContacto">Tienes alguna consulta?</h2>
-                    <!--Seccion descripcion-->
-                    <p class="section-description pb-4" id="formularioContacto">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Fugit, error
-                        amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum
-                        porro a
-                        pariatur accusamus veniam.</p>
-
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-lg-5 mb-4">
-
-                            <!--Form with header-->
-                            <div class="card">
-
-                                <div class="card-body">
-                                    <!--Cabecera formulario -->
-                                    <div class="form-header blue accent-1">
-                                        <h3><i class="fas fa-envelope"></i> Contactanos:</h3>
-                                    </div>
-
-                                    <p>Escribe tu consulta , Te responderemos a la brevedad.</p>
-                                    <br>
-
-                                    <!--Cuerpo Formulario Contacto-->
-                                    <div class="md-form">
-                                        <i class="fas fa-user prefix grey-text"></i>
-                                        <label for="form-name">Nombre y Apellido</label>
-                                        <input type="text" id="form-name" class="form-control">
-
-                                    </div>
-
-                                    <div class="md-form">
-                                        <i class="fas fa-envelope prefix grey-text"></i>
-                                        <label for="form-email">Correo Electronico</label>
-                                        <input type="text" id="form-email" class="form-control">
-
-                                    </div>
-
-                                    <div class="md-form">
-                                        <i class="fas fa-tag prefix grey-text"></i>
-                                        <label for="form-Subject">Asunto</label>
-                                        <input type="text" id="form-Subject" class="form-control">
-
-                                    </div>
-
-                                    <div class="md-form">
-                                        <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                        <label for="form-text">Mensaje</label>
-                                        <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-
-                                    </div>
-
-                                    <div class="text-center mt-4">
-                                        <button class="btn btn-light-blue">Enviar</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <!--Form with header-->
-
+            <div class="d-flex justify-content-center form_container">
+                <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-7">
-
-                            <!--Google map-->
-                            <div id="map-container-google-11" class="z-depth-1-half map-container-6"
-                                style="height: 400px">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.056269620377!2d-70.61866114979324!3d-33.499913107343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d00be4a5fa81%3A0xcd8eaf5b1d547f64!2sDuoc%20UC%3A%20Sede%20San%20Joaqu%C3%ADn!5e0!3m2!1ses-419!2scl!4v1600702474884!5m2!1ses-419!2scl"
-                                    width="600" height="400" frameborder="0" style="border:0;" allowfullscreen=""
-                                    aria-hidden="false" tabindex="0"></iframe>
-                            </div>
-
-                            <br>
-                            <!--Botones Direccion , Telefono y Correo-->
-                            <div class="row text-center">
-                                <div class="col-md-4">
-                                    <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
-                                    <p id="formularioContacto">Vicuña Mackenna 4917, San Joaquin</p>
-                                    <p id="formularioContacto">Chile</p>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
-                                    <p id="formularioContacto">+ 569 95895202</p>
-                                    <p id="formularioContacto">Lunes - Viernes, 8:00-22:00</p>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
-                                    <p id="formularioContacto">info@gmail.com</p>
-                                    <p id="formularioContacto">sale@gmail.com</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--Grid column-->
-
+                        <td>{{ form.username }}</td>
+                        
                     </div>
 
-                </section>
-                <p>Copyright YTM Most rights reserved, 2019 - 2020</p>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                         <td>{{ form.password }}</td>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="submit" name="button" class="btn login_btn">Login</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </div>
+                </form>
             </div>
-        </nav>
-        <!--ATTRIBUTION-->
-        <nav class="navbar navbar-expand navbar-dark" style="background-color: #181818">
-            <div class="nav navbar-nav">
-                <a href="https://www.vecteezy.com/free-vector/gray">Gray Vectors by Vecteezy</a>
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    <a style="color: white;" href="{% url 'password_reset' %}">Forgot your password?</a>
+                </div>
             </div>
-        </nav>
-        <!--FIN CONTAINER PAGINA-->
+        </div>
     </div>
+</div>
+
+<div class="container" style="margin-top: 3em;">
+    {% if form.errors %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> Your username and password didn't match. Please try again.
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% else %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Please login to see this page.
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+{% endif %}
+</div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
 
-</html>
+{% endblock %}

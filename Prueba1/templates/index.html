@@ -3,49 +3,6 @@
 {% block content %}
 {% load static %}
 
-        <!--TEST MANTENEDOR AUTO-->
-        <h1>
-            PRUEBA MANTENEDOR AUTOS
-        </h1>
-        <div class="card text-white bg-transparent" style="border-width: 0;">
-            <div class="card-body">
-                <div class="login">
-                    <br>
-                    <form class="form" method="POST" action="/RegistrarVehiculo/">
-                        {% csrf_token %}
-
-                        <h3 id="modern_text">Datos del usuario:</h3>
-                        <input type="text" placeholder="Cliente" name="cliente" id="cliente" readonly value="{{ user.first_name }} {{ user.last_name }}"/> 
-                            
-                        <br>
-
-                        <h3 id="modern_text">Datos del Vehículo</h3>
-                        <input type="text" placeholder="Patente" name="patente" id="patente"/>
-                        <br>
-                        <input type="text" placeholder="Marca" name="marca" id="marca"/>
-                        <br>
-                        <input type="text" placeholder="Modelo" name="modelo" id="modelo" />
-                        <br>
-                        <input type="text" placeholder="Año" name="ano" id="ano"/>
-                        <br>
-                        <input type="text" placeholder="Litros" name="litros" id="litros"/>
-                        <br>
-                        <input type="text" placeholder="Configuración" name="configuracion" id="configuracion" />
-                        <br>
-                        <input type="text" placeholder="Kilometraje" name="kilometraje" id="kilometraje"/>
-                        <br>
-                        <input type="text" placeholder="Transmisión" name="transmision" id="transmision"/>
-                        <br>
-                        <input type="text" placeholder="Color:" name="color" id="color"/>
-                        <br>
-                        <input type="submit" value="REGISTRAR" class="login-button" style="margin-top: 2em;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--TEST MANTENEDOR AUTO-->
-
-
         <!--ROW 1: CAROUSEL-->
         <div class="row">
             <div class="col-sm-12">
@@ -119,7 +76,7 @@
                 <!--CONTENEDOR PARA LA IMAGEN CON TEXTO ENCIMA-->
                 <div class="contenedor">
                     <!--REGLAS PARA QUE LA IMAGEN TENGA UN EVENTO ON HOVER-->
-                    <a class="thumbnail" href="mecanico1.html">
+                    <a class="thumbnail" href="/mecanico1/">
                         <img class="img-fluid" src="{% static '/mecanicos/perfil/1.jpg' %}" alt="mecanico1">
                         <!--REGLAS DE POSICION PARA EL TEXTO SOBRE LA IMAGEN-->
                         <div class="texto_encima_centrado">
@@ -135,7 +92,7 @@
                 <!--CONTENEDOR PARA LA IMAGEN CON TEXTO ENCIMA-->
                 <div class="contenedor">
                     <!--REGLAS PARA QUE LA IMAGEN TENGA UN EVENTO ON HOVER-->
-                    <a class="thumbnail" href="mecanico2.html">
+                    <a class="thumbnail" href="/mecanico2/">
                         <img class="img-fluid" src="{% static '/mecanicos/perfil/2.jpg' %}" alt="mecanico2">
                         <!--REGLAS DE POSICION PARA EL TEXTO SOBRE LA IMAGEN-->
                         <div class="texto_encima_centrado">
@@ -151,7 +108,7 @@
                 <!--CONTENEDOR PARA LA IMAGEN CON TEXTO ENCIMA-->
                 <div class="contenedor">
                     <!--REGLAS PARA QUE LA IMAGEN TENGA UN EVENTO ON HOVER-->
-                    <a class="thumbnail" href="mecanico3.html">
+                    <a class="thumbnail" href="/mecanico3/">
                         <img class="img-fluid" src="{% static '/mecanicos/perfil/3.jpg' %}" alt="mecanico3">
                         <!--REGLAS DE POSICION PARA EL TEXTO SOBRE LA IMAGEN-->
                         <div class="texto_encima_centrado">
@@ -167,7 +124,7 @@
                 <!--CONTENEDOR PARA LA IMAGEN CON TEXTO ENCIMA-->
                 <div class="contenedor">
                     <!--REGLAS PARA QUE LA IMAGEN TENGA UN EVENTO ON HOVER-->
-                    <a class="thumbnail" href="mecanico4.html">
+                    <a class="thumbnail" href="/mecanico4/">
                         <img class="img-fluid" src="{% static '/mecanicos/perfil/4.jpg' %}" alt="mecanico4">
                         <!--REGLAS DE POSICION PARA EL TEXTO SOBRE LA IMAGEN-->
                         <div class="texto_encima_centrado">
@@ -183,7 +140,7 @@
                 <!--CONTENEDOR PARA LA IMAGEN CON TEXTO ENCIMA-->
                 <div class="contenedor">
                     <!--REGLAS PARA QUE LA IMAGEN TENGA UN EVENTO ON HOVER-->
-                    <a class="thumbnail" href="mecanico5.html">
+                    <a class="thumbnail" href="/mecanico5/">
                         <img class="img-fluid" src="{% static '/mecanicos/perfil/5.jpg' %}" alt="mecanico5">
                         <!--REGLAS DE POSICION PARA EL TEXTO SOBRE LA IMAGEN-->
                         <div class="texto_encima_centrado">
@@ -203,11 +160,4 @@
         <div class="row">
             
         </div>
-
-
-
-
 {% endblock %}
-</body>
-
-</html>

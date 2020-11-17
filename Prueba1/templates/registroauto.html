@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="row">
+    <br>
+    <br>
+</div>
+
+<!-- MANTENEDOR AUTO-->
+<div class="login">
+    <form class="form" method="POST" action="/RegistrarVehiculo/">
+        {% csrf_token %}
+
+        <h3 id="modern_text">Datos del usuario:</h3>
+        <input type="text" placeholder="Cliente" name="cliente" id="cliente" readonly
+            value="{{ user.first_name }} {{ user.last_name }}" />
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3 id="modern_text">Datos del Vehículo</h3>
+                <input type="text" placeholder="Patente" name="patente" id="patente" />
+                <input type="text" placeholder="Marca" name="marca" id="marca" />
+                <input type="text" placeholder="Modelo" name="modelo" id="modelo" />
+                <input type="text" placeholder="Año" name="ano" id="ano" />
+                <input type="text" placeholder="Litros" name="litros" id="litros" />
+            </div>
+
+            <div class="col-md-6">
+                <br>
+                <input type="text" placeholder="Configuración" name="configuracion" id="configuracion" />
+                <input type="text" placeholder="Kilometraje" name="kilometraje" id="kilometraje" />
+                <input type="text" placeholder="Transmisión" name="transmision" id="transmision" />
+                <input type="text" placeholder="Color:" name="color" id="color" />
+                <input type="submit" value="REGISTRAR" class="login-button" style="margin-top: 1em; margin-left: 2em; width: 10em; height: 2em; background-color: #f7d917;" />
+
+            </div>
+        </div> 
+</div>
+<!-- MANTENEDOR AUTO-->
+
+<div class="row">
+    <br>
+    <br>
+    <br>
+    <br>    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>    
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+{% endblock %}

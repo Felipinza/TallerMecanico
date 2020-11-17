@@ -1,188 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
+<!--REGISTRO-->
+<div class="row">
+    <br><br>
+    <br><br>
+</div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>TALLER YUYITOS: REGISTRO</title>
-</head>
-
-<body id="mybod" style="background-color: black;">
-
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #181818;">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ml-4">
-                    <a id="item_menu" class="nav-link" href="index.html">INICIO</a>
-                </li>
-                <!--"INVENTARIO"-->
-                <li class="nav-item dropdown ml-4">
-                    <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                        <a id="item_menu" class="dropdown-item" href="inventario.html">PERSONALIZACIÓN</a>
-                        <a id="item_menu" class="dropdown-item" href="inventario.html">PERFORMANCE</a>
-                        <a id="item_menu" class="dropdown-item" href="inventario.html">MANTENIMIENTO</a>
-                        <a id="item_menu" class="dropdown-item" href="inventario.html">ACCESORIOS</a>
-                    </div>
-                </li>
-                <!--"MODIFICACIONES"-->
-                <li class="nav-item dropdown ml-4">
-                    <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">SERVICIOS</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                        <a id="item_menu" class="dropdown-item" href="servicios.html">INSTALACIONES</a>
-                        <a id="item_menu" class="dropdown-item" href="servicios.html">CONVERSIONES</a>
-                        <a id="item_menu" class="dropdown-item" href="servicios.html">RESTAURACIONES</a>
-                        <a id="item_menu" class="dropdown-item" href="servicios.html">MANTENIMIENTO</a>
-                    </div>
-                </li>
-                <!--"MECANICOS"-->
-                <li class="nav-item dropdown ml-4">
-                    <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">MECANICOS</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                        <a id="item_menu" class="dropdown-item" href="mecanico1.html">Pablo Centella</a>
-                        <a id="item_menu" class="dropdown-item" href="mecanico2.html">Cristiano Ronaldo</a>
-                        <a id="item_menu" class="dropdown-item" href="mecanico3.html">Alain D'apremont</a>
-                        <a id="item_menu" class="dropdown-item" href="mecanico4.html">Felipe Ipinza</a>
-                        <a id="item_menu" class="dropdown-item" href="mecanico5.html">Elon Musk</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!--LOGO-->
-        <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="index.html">
-                <img src="{% static 'logo.jpg' %}" alt="LOGO">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <!--OTRA NAVEGACIÓN-->
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-4">
-                    <a id="item_menu" class="nav-link" href="taller.html">TALLER</a>
-                </li>
-                <li class="nav-item mr-4">
-                    <a id="item_menu" class="nav-link" href="galeria.html">GALERÍA</a>
-                </li>
-                <li class="nav-item mr-4">
-                    <a id="item_menu" class="nav-link" href="registro.html">REGISTRARSE</a>
-                </li>
-                <li class="nav-item mr-4">
-                    <a id="item_menu" class="nav-link" href="login.html">LOGIN</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!--REGISTRO-->
-    <div class="row" style="margin-top: 1em;">
-        <div class="col-sm-2">
-        </div>
-
-        <div class="col-sm-8">
-
-            <!-- <h1 id="modern_text_title">¡Bienvenido a la Comunidad!</h1> -->
-
-            <div class="card text-white bg-transparent" style="border-width: 0;">
-                <div class="card-body">
-                    <div class="login">
-                        <br>
-                        <form class="form" method="POST" action="/RegistrarUsuario/">
-                            {% csrf_token %}
-                            <h3 id="modern_text">Nombre Usuario:</h3>
-                            <input type="text" placeholder="Nombre" name="name" id="name" />
-                            <br>
-                            <br>
-                            <h3 id="modern_text">Correo Electrónico:</h3>
-                            <input type="text" placeholder="Correo" name="correo" id="correo"/>
-                            <br>
-                            <br>
-                            <h3 id="modern_text">Contraseña:</h3>
-                            <input type="password" placeholder="Contraseña" />
-                            <br>
-                            <br>
-                            <h3 id="modern_text">Confirmar Contraseña:</h3>
-                            <input type="password" placeholder="Confirmar Contraseña" />
-                            <br>
-                            <input type="submit" value="REGISTRARSE" class="login-button" style="margin-top: 2em;" />
-                            <br>
-                            <br>
-                            <a class="sign-up">¿Ya tienes una cuenta?</a>
-                            <br>
-                            <br>
-                            <a class="no-access">¿Problemas al registrarte?</a>
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="{% static '/logo_grande.png' %}" class="brand_logo" alt="Logo">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container" style="margin-top: 1px;">
+                <form class="form" method="POST" action="/RegistrarUsuario/">
+                {% csrf_token %}
+                    <p id="modern_text_title" style="font-style: oblique;">REGISTRO</p>
+                    <hr color="#ffd66b">
+                    <!--NOMBRE DE USUARIO-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                         </div>
+                        <input type="text" placeholder="Nombre Usuario" name="username" id="username" />
                     </div>
-                </div>
+                    <!--PRIMER NOMBRE-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" placeholder="Primer Nombre" name="first_name" id="first_name" />
+                    </div>
+                    <!--SEGUNDO NOMBRE-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" placeholder="Segundo Nombre" name="last_name" id="last_name" />
+                    </div>
+                    <!--CORREO ELECTRONICO-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" placeholder="Correo Electrónico" name="email" id="email" />
+                    </div>
+                    <!--CONTRASEÑA-->
+                    <div class="input-group mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" placeholder="Contraseña" name="password" id="password" />
+                    </div>
+                    <!--SUBMIT BUTTON-->
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="submit" name="button" class="btn login_btn" style="margin-top: 3em;">Registrarse</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <div class="col-sm-2">
-
-        </div>
     </div>
+</div>
+<!--ROW 1-->
 
-    <!--ROW 1-->
-    <div class="row" style="margin-top: 1cm">
-        <div class="col-sm-1">
-
-        </div>
-        <div class="col-sm-10">
-            <!--CERTIFICADO USUARIO-->
-            <div class="card text-center bg-dark"
-                style="border-radius: 20px; border-style: double; border-color: gray;">
-                <img class="card-img-top" src="holder.js/100px180/" alt="">
-                <div class="card-body">
-                    <h1 id="titulo-certi" class="card-title">Certificado Miembro Yuyitos-Club</h1>
-                    <h2 id="texto-certi" class="card-text">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt delectus quo sapiente
-                        suscipit molestiae architecto vitae enim eligendi repellendus culpa. Aliquid exercitationem
-                        cupiditate temporibus neque est architecto accusamus corporis minima?
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste necessitatibus, non labore
-                        quas excepturi cumque deleniti sequi quis ad libero possimus eveniet? Nesciunt eveniet dicta
-                        atque recusandae distinctio commodi debitis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio incidunt labore laborum iste,
-                        provident tempore quisquam earum. Similique, accusamus neque ad, minus maxime laboriosam
-                        quis quia veritatis nobis, ducimus dolorem.
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-1">
-
-        </div>
-        <!--ROW 1-->
-    </div>
-
-    <!--FOOTER-->
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #181818">
-        <div class="nav navbar-nav">
-            <a href="https://www.vecteezy.com/free-vector/gray">Gray Vectors by Vecteezy</a>
-        </div>
-    </nav>
-
-    <!--FIN CONTAINER PAGINA-->
-    </div>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{% endblock %}

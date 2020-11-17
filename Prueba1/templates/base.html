@@ -10,62 +10,61 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>TALLER YUYITOS: INICIO</title>
 </head>
 
-<body id="mybod" style="background-color: black;">
+<body id="mybod">
 
     <!--CONTAINER DE LA PÁGINA-->
     <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
-
-        <!--NAVBAR-->
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #181818;">
+        {% if es_mecanico %}
+        <!--------------------------------------------------------------NAVBAR MECANICO------------------------------------------------>
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color:#181818;">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ml-4">
-                        <a id="item_menu" class="nav-link" href="index.html">INICIO</a>
+                <ul class="navbar-nav">
+                    <!--"INICIO"-->
+                    {% if nombre_pagina == 'inicio' %}
+                    <li class="nav-item active">
+                    {% else %}
+                    <li class="nav-item">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link" href="/index/">INICIO</a>
                     </li>
                     <!--"INVENTARIO"-->
+                    {% if nombre_pagina == 'inventario' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
                     <li class="nav-item dropdown ml-4">
+                    {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">PERSONALIZACIÓN</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">PERFORMANCE</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">MANTENIMIENTO</a>
-                            <a id="item_menu" class="dropdown-item" href="inventario.html">ACCESORIOS</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">VER INVENTARIO</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">AGREGAR PRODUCTO</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">ELIMINAR PRODUCTO</a>
                         </div>
                     </li>
-                    <!--"MODIFICACIONES"-->
+                    <!--"SERVICIOS"-->
+                    {% if nombre_pagina == 'servicios' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
                     <li class="nav-item dropdown ml-4">
+                    {% endif %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SERVICIOS</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">INSTALACIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">CONVERSIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">RESTAURACIONES</a>
-                            <a id="item_menu" class="dropdown-item" href="servicios.html">MANTENIMIENTO</a>
-                        </div>
-                    </li>
-                    <!--"MECANICOS"-->
-                    <li class="nav-item dropdown ml-4">
-                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MECANICOS</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
-                            <a id="item_menu" class="dropdown-item" href="mecanico1.html">Pablo Centella</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico2.html">Cristiano Ronaldo</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico3.html">Alain D'apremont</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico4.html">Felipe Ipinza</a>
-                            <a id="item_menu" class="dropdown-item" href="mecanico5.html">Elon Musk</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">VER SERVICIOS</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">AGREGAR SERVICIO</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">ELIMINAR SERVICIO</a>
                         </div>
                     </li>
                 </ul>
             </div>
-
             <!--LOGO-->
             <div class="mx-auto order-0">
-                <a class="navbar-brand mx-auto" href="index.html">
+                <a class="navbar-brand mx-auto" href="/index/">
                     <img src="{% static 'logo.jpg' %}" alt="LOGO">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
@@ -76,15 +75,23 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="RELEASE2/REL2.html">TALLER</a>
+                        <a id="item_menu" class="nav-link" href="/taller/">TALLER</a>
                     </li>
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="galeria.html">GALERÍA</a>
+                    <!--"GALERÍA"-->
+                    {% if nombre_pagina == 'galeria' %}
+                    <li class="nav-item dropdown mr-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALERÍA</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
+                            <a id="item_menu" class="dropdown-item" href="/galeria/">VER GALERÍA</a>
+                            <a id="item_menu" class="dropdown-item" href="/subirimagen/">SUBIR IMAGEN</a>
+                            <a id="item_menu" class="dropdown-item" href="/borrarimagen/">ELIMINAR IMAGEN</a>
+                        </div>
                     </li>
-                    <li class="nav-item mr-4">
-                        <a id="item_menu" class="nav-link" href="registro.html">REGISTRARSE</a>
-                    </li>
-                    <li class="nav-item mr-4">
+                    <li class="nav-item dropdown mr-4">
                         {% if user.is_authenticated %}
                         <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +101,7 @@
                             <a id="item_menu" class="dropdown-item" href="#">Perfil</a>
                             <a id="item_menu" class="dropdown-item" href="#">Mensajes</a>
                             <a id="item_menu" class="dropdown-item" href="#">Foro</a>
-                            <a id="item_menu" class="dropdown-item" href="#">Registrar Auto</a>
+                            <a id="item_menu" class="dropdown-item" href="/registroauto/">Registrar Auto</a>
                             <br>
                             <a id="item_menu" class="dropdown-item" href="/accounts/logout">LOG OUT</a>
                         </div>
@@ -107,6 +114,127 @@
                 </ul>
             </div>
         </nav>
+        <!--FIN NAVBAR MECANICO-->
+
+        {% else %}
+        <!-----------------------------------------------------------NAVBAR CLIENTE-------------------------------------------------------------->
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #181818;">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <!--"INICIO"-->
+                    {% if nombre_pagina == 'inicio' %}
+                    <li class="nav-item active">
+                    {% else %}
+                    <li class="nav-item">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link" href="/index/">INICIO</a>
+                    </li>
+                    <!--"INVENTARIO"-->
+                    {% if nombre_pagina == 'inventario' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVENTARIO</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">PERSONALIZACIÓN</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">PERFORMANCE</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">MANTENIMIENTO</a>
+                            <a id="item_menu" class="dropdown-item" href="/inventario/">ACCESORIOS</a>
+                        </div>
+                    </li>
+                    <!--"SERVICIOS"-->
+                    {% if nombre_pagina == 'servicios' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SERVICIOS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">INSTALACIONES</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">CONVERSIONES</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">RESTAURACIONES</a>
+                            <a id="item_menu" class="dropdown-item" href="/servicios/">MANTENIMIENTO</a>
+                        </div>
+                    </li>
+                    <!--"MECANICOS"-->
+                    {% if nombre_pagina == 'mecanicos' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MECANICOS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
+                            <a id="item_menu" class="dropdown-item" href="/mecanico1/">Pablo Centella</a>
+                            <a id="item_menu" class="dropdown-item" href="/mecanico2/">Cristiano Ronaldo</a>
+                            <a id="item_menu" class="dropdown-item" href="/mecanico3/">Alain D'apremont</a>
+                            <a id="item_menu" class="dropdown-item" href="/mecanico4/">Felipe Ipinza</a>
+                            <a id="item_menu" class="dropdown-item" href="/mecanico5/">Elon Musk</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--LOGO-->
+            <div class="mx-auto order-0">
+                <a class="navbar-brand mx-auto" href="/index/">
+                    <img src="{% static 'logo.jpg' %}" alt="LOGO">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <!--OTRA NAVEGACIÓN-->
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    {% if nombre_pagina == 'taller' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link" href="/taller/">TALLER</a>
+                    </li>
+                    {% if nombre_pagina == 'galeria' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link" href="/galeria/">GALERÍA</a>
+                    </li>
+                    {% if nombre_pagina == 'registrarse' %}
+                    <li class="nav-item dropdown ml-4 active">
+                    {% else %}
+                    <li class="nav-item dropdown ml-4">
+                    {% endif %}
+                        <a id="item_menu" class="nav-link" href="/registro/">REGISTRARSE</a>
+                    </li>
+                    <li class="nav-item dropdown mr-4">
+                        {% if user.is_authenticated %}
+                        <a id="item_menu" class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: #181818;">
+                            <a id="item_menu" class="dropdown-item" href="#">Perfil</a>
+                            <a id="item_menu" class="dropdown-item" href="#">Mensajes</a>
+                            <a id="item_menu" class="dropdown-item" href="#">Foro</a>
+                            <a id="item_menu" class="dropdown-item" href="/registroauto/">Registrar Auto</a>
+                            <br>
+                            <a id="item_menu" class="dropdown-item" href="/accounts/logout">LOG OUT</a>
+                        </div>
+                        {% else %}
+                        <a id="item_menu" class="nav-link" href="/accounts/login" id="dropdownId">
+                            LOGIN
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% endif %}
     </div>
 
     {% block content %}
@@ -114,121 +242,107 @@
     {% endblock %}
 
     <!--FOOTER-->
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #181818">
-        <div class="nav navbar-nav">
-            <section class="section pb-5">
-
-                <!--Seccion Contacto-->
-                <h2 class="section-heading h1 pt-4" id="formularioContacto">Tienes alguna consulta?</h2>
-                <!--Seccion descripcion-->
-                <p class="section-description pb-4" id="formularioContacto">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Fugit, error
-                    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum
-                    porro a
-                    pariatur accusamus veniam.</p>
-
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-lg-5 mb-4">
-
-                        <!--Form with header-->
-                        <div class="card">
-
-                            <div class="card-body">
-                                <!--Cabecera formulario -->
-                                <div class="form-header blue accent-1">
-                                    <h3><i class="fas fa-envelope"></i> Contáctanos:</h3>
+    <nav class="navbar navbar-expand navbar-dark" style="margin-top: 30em; background-color: #181818">
+        <div class="container">
+            <div class="nav navbar-nav">
+                <section class="section pb-5">
+                    <!--Seccion Contacto-->
+                    <h2 class="section-heading h1 pt-4" id="formularioContacto">Tienes alguna consulta?</h2>
+                    <!--Seccion descripcion-->
+                    <p class="section-description pb-4" id="formularioContacto">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Fugit, error
+                        amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum
+                        porro a
+                        pariatur accusamus veniam.</p>
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-lg-5 mb-4">
+                            <!--Form with header-->
+                            <div class="card">
+                                <div class="card-body">
+                                    <!--Cabecera formulario -->
+                                    <div class="form-header blue accent-1">
+                                        <h3><i class="fas fa-envelope"></i> Contáctanos:</h3>
+                                    </div>
+                                    <p>Escribe tu consulta, te responderemos a la brevedad.</p>
+                                    <br>
+                                    <!--Cuerpo Formulario Contacto-->
+                                    <div class="md-form">
+                                        <i class="fas fa-user prefix grey-text"></i>
+                                        <label for="form-name">Nombre y Apellido</label>
+                                        <input type="text" id="form_nombre" class="form-control">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-envelope prefix grey-text"></i>
+                                        <label for="form-email">Correo Electrónico</label>
+                                        <input type="text" id="form_correo" class="form-control">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-tag prefix grey-text"></i>
+                                        <label for="form-Subject">Asunto</label>
+                                        <input type="text" id="form_asunto" class="form-control">
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-pencil-alt prefix grey-text"></i>
+                                        <label for="form-text">Mensaje</label>
+                                        <textarea id="form_mensaje" class="form-control md-textarea"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <button id="boton_enviar" class="btn btn-light-blue">Enviar</button>
+                                    </div>
                                 </div>
-
-                                <p>Escribe tu consulta, te responderemos a la brevedad.</p>
-                                <br>
-
-                                <!--Cuerpo Formulario Contacto-->
-                                <div class="md-form">
-                                    <i class="fas fa-user prefix grey-text"></i>
-                                    <label for="form-name">Nombre y Apellido</label>
-                                    <input type="text" id="form_nombre" class="form-control">
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-envelope prefix grey-text"></i>
-                                    <label for="form-email">Correo Electrónico</label>
-                                    <input type="text" id="form_correo" class="form-control">
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-tag prefix grey-text"></i>
-                                    <label for="form-Subject">Asunto</label>
-                                    <input type="text" id="form_asunto" class="form-control">
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                    <label for="form-text">Mensaje</label>
-                                    <textarea id="form_mensaje" class="form-control md-textarea" rows="3"></textarea>
-                                </div>
-
-                                <div class="text-center mt-4">
-                                    <button id="boton_enviar" class="btn btn-light-blue">Enviar</button>
-                                </div>
-
                             </div>
-
+                            <!--Form with header-->
                         </div>
-                        <!--Form with header-->
+                        <!--Grid column-->
 
+                        <!--Grid column-->
+                        <div class="col-lg-7">
+                            <!--Google map-->
+                            <div id="map-container-google-11" class="z-depth-1-half map-container-6"
+                                style="height: 400px">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.056269620377!2d-70.61866114979324!3d-33.499913107343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d00be4a5fa81%3A0xcd8eaf5b1d547f64!2sDuoc%20UC%3A%20Sede%20San%20Joaqu%C3%ADn!5e0!3m2!1ses-419!2scl!4v1600702474884!5m2!1ses-419!2scl"
+                                    width="600" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+                                    aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <br>
+                            <!--Botones Direccion , Telefono y Correo-->
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
+                                    <p id="formularioContacto">Vicuña Mackenna 4917, San Joaquin</p>
+                                    <p id="formularioContacto">Chile</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
+                                    <p id="formularioContacto">+ 569 95895202</p>
+                                    <p id="formularioContacto">Lunes - Viernes, 8:00-22:00</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
+                                    <p id="formularioContacto">info@gmail.com</p>
+                                    <p id="formularioContacto">sale@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid column-->
                     </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-7">
-
-                        <!--Google map-->
-                        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.056269620377!2d-70.61866114979324!3d-33.499913107343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d00be4a5fa81%3A0xcd8eaf5b1d547f64!2sDuoc%20UC%3A%20Sede%20San%20Joaqu%C3%ADn!5e0!3m2!1ses-419!2scl!4v1600702474884!5m2!1ses-419!2scl"
-                                width="600" height="400" frameborder="0" style="border:0;" allowfullscreen=""
-                                aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-
-                        <br>
-                        <!--Botones Direccion , Telefono y Correo-->
-                        <div class="row text-center">
-                            <div class="col-md-4">
-                                <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
-                                <p id="formularioContacto">Vicuña Mackenna 4917, San Joaquin</p>
-                                <p id="formularioContacto">Chile</p>
-                            </div>
-
-                            <div class="col-md-4">
-                                <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
-                                <p id="formularioContacto">+ 569 95895202</p>
-                                <p id="formularioContacto">Lunes - Viernes, 8:00-22:00</p>
-                            </div>
-
-                            <div class="col-md-4">
-                                <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
-                                <p id="formularioContacto">info@gmail.com</p>
-                                <p id="formularioContacto">sale@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-
-            </section>
-            <p>Copyright YTM Most rights reserved, 2019 - 2020</p>
+                </section>
+            </div>
         </div>
     </nav>
     <!--ATTRIBUTION-->
     <nav class="navbar navbar-expand navbar-dark" style="background-color: #181818">
         <div class="nav navbar-nav">
             <a href="https://www.vecteezy.com/free-vector/gray">Gray Vectors by Vecteezy</a>
+            <p style="margin-left: 15em">Copyright YTM Most rights reserved, 2019 - 2020</p>
         </div>
     </nav>
+    </div>
+
+
     <!--FIN CONTAINER PAGINA-->
     </div>
 
@@ -237,9 +351,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(
-            function () {
-                $("#boton_enviar").click(
+        $(document).ready(function () {
+
+            $('ul.navbar-nav > li')
+                .click(function (e) {
+                    $('ul.navbar-nav > li')
+                        .removeClass('active');
+                    $(this).addClass('active');
+                });
+
+            $("#boton_enviar").click
+                (
                     function () {
                         var nombre_contacto, correo_contacto, asunto_contacto, mensaje_contacto;
                         nombre_contacto = $('#form_nombre').val();
@@ -250,8 +372,8 @@
                             "Correo: " + correo_contacto + "\n" + "Asunto: " + asunto_contacto + "\n" + "Mensaje: " + mensaje_contacto);
                     }
                 )
-            }
-        );
+        });
+
     </script>
 </body>
 

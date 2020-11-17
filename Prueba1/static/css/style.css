@@ -1,12 +1,12 @@
-/*REGLAS PARA BODY*/
 
 #mybod {
-    background-image: black;
-    background-repeat: no-repeat;
-
-    overflow-x: hidden;
-    overflow-y: auto;
+  background-image: url('/images/fondo3.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+
 
 /* BACKGROUND IMAGE: 
     background-attachment: fixed;
@@ -21,6 +21,104 @@
     color: white !important;
     font-size: larger;
 }
+
+/*LOGIN MODAL SNIPPET*/
+.user_card {
+  height: 650px;
+  width: 450px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #181818;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.user_card_login {
+  height: 400px;
+  width: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: #181818;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  background:transparent;
+  padding: 10px;
+  text-align: center;
+}
+.brand_logo {
+  height: 150px;
+  width: 150px;
+}
+.form_container {
+  margin-top: 100px;
+}
+.login_btn {
+  width: 100%;
+  background: black !important;
+  color: white !important;
+  border-color: #ffd66b;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: black !important;
+  color:white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+/*INSTRUCCIONES FORM-CONTROL BOOTSTRAP*/
+.form-control {
+  width: 11em; 
+}
+
+/*NAVBAR ACTIVE*/
+.nav-link { 
+  color: green; 
+} 
+
+.nav-item>a:hover { 
+  color: green; 
+} 
+
+.navbar-nav>.active>a { 
+  background-color: #2c2c2c; 
+  color: green; 
+  border-radius: 15px;
+}
+
+
 
 /*TEXTO MODERNO MENU Y GENERAL*/
 #modern_text {
@@ -58,13 +156,14 @@
   color: white !important;
   font-size: 40px;
   text-align: center;
-  margin-top: 0.8em ;
+  margin-top: 0.6em;
 }
 
 #modern_text_especialidad{
   font-family: monospace !important;
-  color: white !important;
+  color: #ffd66b !important;
   font-size: 40px;
+  font-stretch: extra-condensed;
 }
 
 #modern_text_cita{
@@ -88,7 +187,8 @@
 
 /*THUMBNAIL CON HOVER PARA MECANICOS*/
 .thumbnail:hover .img-fluid{
-    opacity: 0.3;
+  opacity: 0.3;
+  transition: opacity 0.2s ease-in-out ;
 }
 
 .thumbnail:hover .texto_mecanicos{
@@ -104,6 +204,7 @@
 
 .thumbnail_banner:hover .img-fluid{
   opacity: 0.3;
+  transition: opacity 0.2s ease-in-out ;
 }
 
 /*PONER TEXTO SOBRE IMAGENES EN UN CONTENEDOR ESPECIAL*/
@@ -197,28 +298,20 @@
 /*SNIPPETS*/
 /*el login que hizo alguien en alguna parte para algun trabajo*/
 .login {
-    margin:0 auto;
-    max-width:500px;
+    margin:0 ;
   }
   .login-header {
     color:#fff;
-    text-align:center;
     font-size:300%;
   }
   .login-header h1 {
      text-shadow: 0px 5px 15px #000;
   }
   .login-form h3 {
-    text-align:left;
-    margin-left:40px;
     color:#fff;
   }
   .login-form {
     box-sizing:border-box;
-    padding-top:15px;
-      padding-bottom:10%;
-    margin:5% auto;
-    text-align:center;
   }
   .login input[type="text"],
   .login input[type="password"] {
@@ -230,7 +323,6 @@
     border-radius:5px;
     border:2px solid #f2f2f2;
     outline:none;
-    padding-left:10px;
   }
   .login-form input[type="button"] {
     height:30px;
@@ -238,6 +330,8 @@
     border:1px solid #f2f2f2;
     border-radius:5px;
     color: white;
+    margin-left: 40px;
+    margin-top: 30px;
     background-color: transparent;
     text-transform:uppercase;
     font-family: monospace;

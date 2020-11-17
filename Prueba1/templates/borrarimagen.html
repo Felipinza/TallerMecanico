@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container" style="padding-top: 3em; padding-left: 3em;">
+    <div class="row">
+        <p id="item_menu">Filtrar: </p>
+        <form method="POST">
+            <select class="form-control" id="categoria" name="categoria" style="width: 20em;">
+                {% for categoria in categorias %}
+                <option value="{{ categoria.idCategoria }}">{{ categoria.nombreCategoria }}</option>
+                {% endfor %}
+                <option value=0>NINGUNA</option>
+            </select>
+
+            <input type="submit" value="Filtrar">
+            {% csrf_token %}
+
+            <a type="submit" href="/borrarimagen/">Quitar Filtros</a>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid" style="padding-left: 3em; padding-right: 3em;">
+    <div class="row">
+        {% for imagen in imagenes %}
+        <div class="col-md-4" style="margin-top: 1cm; margin-bottom: 15px;">
+            <img class="img-fluid rounded" style="border-style: ridge;" src="{% static imagen.archivo %}"
+                alt="{{ imagen.nombre }}">
+            <div class="card text-left">
+                <img class="card-img-top" src="holder.js/100px180/" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ imagen.nombre }}</h4>
+                    <p class="card-text">{{ imagen.fechaRegistro }}</p>
+                    <p class="card-text">{{ imagen.texto }}</p>
+                    <a type="button" class="btn btn-outline-danger"
+                        href="/BorrarImagen/{{ imagen.idImagen }}">Eliminar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
