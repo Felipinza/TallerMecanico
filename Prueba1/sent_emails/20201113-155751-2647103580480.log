@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: oyarzunalen@gmail.com
+Date: Fri, 13 Nov 2020 18:57:51 -0000
+Message-ID: <160529387190.6624.12588005241331660424@LAPTOP-RBOQN8M3>
+
+Someone asked for password reset for email oyarzunalen@gmail.com. Follow the link below:
+
+http://127.0.0.1:8000/accounts/reset/Mw/ada9of-2de05efcbe3a43c9efc1610d298700d8/
+-------------------------------------------------------------------------------

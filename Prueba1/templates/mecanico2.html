@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!--ROW 1-->
+<div class="container-fluid" style="margin-top: 10em; margin-left: 8em;">
+    <div class="row">
+        <figure>
+            <img class="img-fluid" src="{% static '/mecanicos/retrato/2.jpg' %}" style="border-radius: 0.8cm;"
+                alt="mecanico1">
+            <figcaption class="figure-caption" id="caption_nombre_mec">Cristiano Ronaldo</figcaption>
+        </figure>
+
+        <div class="col-sm-1" style="margin-left: 1em;">
+            <a href="/mecanico1/">
+                <img class="img-fluid icono_mecanico rounded" src="{% static '/mecanicos/iconos/80x80/1.jpg' %}" alt="">
+            </a>
+            <a href="/mecanico3/">
+                <img class="img-fluid icono_mecanico rounded" src="{% static '/mecanicos/iconos/80x80/3.jpg' %}" alt=""
+                style="margin-top: 2em;">
+            </a>
+            <a href="/mecanico4/">
+                <img class="img-fluid icono_mecanico rounded" src="{% static '/mecanicos/iconos/80x80/4.jpg' %}" alt=""
+                style="margin-top: 2em;">
+            </a>
+            <a href="/mecanico5/">
+                <img class="img-fluid icono_mecanico rounded" src="{% static '/mecanicos/iconos/80x80/5.jpg' %}" alt=""
+                style="margin-top: 2em;">
+            </a>
+        </div>
+
+
+        <div class="card text-white" style="background-color: transparent; border-style: none; margin-left: 10em">
+            <div class="card-body">
+                <h2 class="card-title" id="modern_text_especialidad">Especialista en Instalaciones</h2>
+                <hr color="#ffd66b">
+                <br>
+                <h4 class="card-title" id="modern_text_cita">"¿Cuántas ruedas quieres en tus ruedas?"</h4>
+                <br>
+                <p class="card-text" id="modern_text">> A cargo de la instalación de partes en tu vehículo.</p>
+                <p class="card-text" id="modern_text">> Más de 1600 espejos reinstalados.</p>
+                <p class="card-text" id="modern_text">> Más de 400 horas de experiencia en "My Summer Car".</p>
+                <p class="card-text" id="modern_text">> Pueve volar cuando nadie lo ve.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--CARUSEL TRABAJOS-->
+<div id="carouselId" class="carousel slide" data-ride="carousel" style="margin-top: 9cm;">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" src="{% static '/mecanicos/trabajos/2/1.jpg' %}"
+                            alt="BMW Mugello" style="width: 100%;">
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">BWM M1 - MUGELLO</h4>
+                                <p id="modern_text" class="card-text">23/06/2020 - PPFILTER: A3PP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" src="{% static '/mecanicos/trabajos/2/2.jpg' %}" alt="R33 Akina" style="width: 100%;">
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">SKYLINE R33 - AKINA</h4>
+                                <p id="modern_text" class="card-text">11/04/2020 - PPFILTER: SOL_NATURAL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" style="width: 100%;"
+                        src="{% static '/mecanicos/trabajos/2/3.jpg' %}" alt="R33 Akina" >
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">SKYLINE R33 - AKINA</h4>
+                                <p id="modern_text" class="card-text">11/04/2020 - PPFILTER: SOL_NATURAL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" src="{% static '/mecanicos/trabajos/2/4.jpg' %}"
+                            alt="BMW Mugello" style="width: 100%;">
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">BWM M1 - MUGELLO</h4>
+                                <p id="modern_text" class="card-text">23/06/2020 - PPFILTER: A3PP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" src="{% static '/mecanicos/trabajos/2/5.jpg' %}" alt="R33 Akina" style="width: 100%;">
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">SKYLINE R33 - AKINA</h4>
+                                <p id="modern_text" class="card-text">11/04/2020 - PPFILTER: SOL_NATURAL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded" src="{% static '/mecanicos/trabajos/2/6.jpg' %}" alt="R33 Akina" style="width: 100%;">
+                        <div class="card text-left" style="background-color: #181818;">
+                            <div class="card-body">
+                                <h4 id="modern_text_title" class="card-title">SKYLINE R33 - AKINA</h4>
+                                <p id="modern_text" class="card-text">11/04/2020 - PPFILTER: SOL_NATURAL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <br><br>
+</div>
+
+{% endblock %}

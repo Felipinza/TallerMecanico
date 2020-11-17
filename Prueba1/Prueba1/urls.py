@@ -16,12 +16,33 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from prueba import views as views_principal
+from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views_principal.IndexTemplate),
-    path('galeria/', views_principal.Galeria),
-    path('login/', views_principal.Login),
+    path('mecanico1/', views_principal.Mecanico1),
+    path('mecanico2/', views_principal.Mecanico2),
+    path('mecanico3/', views_principal.Mecanico3),
+    path('mecanico4/', views_principal.Mecanico4),
+    path('mecanico5/', views_principal.Mecanico5),
+    path('inventario/', views_principal.Inventario),
+    path('servicios/', views_principal.Servicios),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('registro/', views_principal.Registro),
-    path('RegistrarUsuario/', views_principal.RegistrarUsuario)
+    path('RegistrarUsuario/', views_principal.RegistrarUsuario),
+    path('registroauto/', views_principal.Vehiculo),
+    path('RegistrarVehiculo/', views_principal.RegistrarVehiculo),
+    path('BorrarVehiculo/<patente>', views_principal.BorrarVehiculo),
+    path('subirimagen/', views_principal.SubirImagen),
+    path('GuardarImagen/', views_principal.GuardarImagen),
+    path('BorrarImagen/<int:idImagen>', views_principal.BorrarImagen),
+    path('galeria/', views_principal.Galeria),
+    path('borrarimagen/', views_principal.EliminarImagen),
+    path('taller/', views_principal.Taller),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
